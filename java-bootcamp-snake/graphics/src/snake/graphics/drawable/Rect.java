@@ -45,6 +45,10 @@ public class Rect extends Drawable{
         rectangle.height = height;
     }
 
+    public boolean intersects(Rect rect){
+        return rectangle.intersects(rect.rectangle);
+    }
+
     @Override
     public void draw(Graphics g){
         g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
