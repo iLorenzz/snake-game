@@ -2,6 +2,8 @@ package snake.graphics.drawable;
 
 import snake.graphics.basic.Color;
 
+import java.awt.*;
+
 public abstract class Drawable {
    private Color color;
 
@@ -21,6 +23,6 @@ public abstract class Drawable {
        return getClass().getSimpleName();
     }
 
-    public abstract void draw();
+    public abstract void draw(Graphics g);
 
 }
