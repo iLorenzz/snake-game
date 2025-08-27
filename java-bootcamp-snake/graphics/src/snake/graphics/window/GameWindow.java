@@ -1,6 +1,7 @@
 package snake.graphics.window;
 
 import snake.graphics.drawable.Drawable;
+import snake.graphics.drawable.Rect;
 import snake.graphics.window.internal.JFrameGameWindow;
 
 public class GameWindow {
@@ -16,5 +17,9 @@ public class GameWindow {
 
     public void removeDrawable(Drawable drawable){
         window.getRenderer().remove(drawable);
+    }
+
+    public Rect drawingArea(){
+        return window.getDrawingArea();
     }
 }

@@ -39,6 +39,7 @@ public class Rect extends Drawable{
     }
 
     public int minY(){
+        System.out.println(rectangle.getMinY());
         return (int) rectangle.getMinY();
     }
 
@@ -47,6 +48,7 @@ public class Rect extends Drawable{
     }
 
     public int maxY(){
+        System.out.println(rectangle.getMaxY());
         return (int) rectangle.getMaxY();
     }
 

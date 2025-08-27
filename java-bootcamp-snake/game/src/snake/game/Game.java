@@ -28,8 +28,8 @@ public class Game {
     private void addElementsToScreen(){
         gameWindow.addDrawable(new Background(WINDOW_WIDTH, WINDOW_HEIGHT, Color.BLACK));
 
-        gameWindow.addDrawable(new Food());
+        gameWindow.addDrawable(new Food(gameWindow.drawingArea()));
 
-        gameWindow.addDrawable(new GameOverText(14));
+        //gameWindow.addDrawable(new GameOverText(14));
     }
 }

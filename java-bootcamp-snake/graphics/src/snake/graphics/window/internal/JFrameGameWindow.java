@@ -20,8 +20,8 @@ public class JFrameGameWindow extends JFrame {
 
         renderer = new Renderer();
 
-        int upperY = height - getContentPane().getSize().height;
-        drawingArea = new Rect(Color.WHITE, 0, upperY, width, height - upperY);
+        //int upperY = height - getContentPane().getSize().height;
+        drawingArea = new Rect(Color.WHITE, 0, 0, width, height);
 
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
