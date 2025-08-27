@@ -1,4 +1,4 @@
-package snake.graphics.window;
+package snake.graphics.window.internal;
 
 import snake.graphics.basic.Color;
 import snake.graphics.drawable.Rect;
@@ -19,8 +19,6 @@ public class JFrameGameWindow extends JFrame {
         setLocationRelativeTo(null);
 
         renderer = new Renderer();
-        renderer.add(new Rect(Color.GREEN, 20, 20, 200, 100));
-        renderer.add(new Text(Color.BLACK, "Hello", new Point(200, 200)));
 
         int upperY = height - getContentPane().getSize().height;
         drawingArea = new Rect(Color.WHITE, 0, upperY, width, height - upperY);

@@ -1,4 +1,4 @@
-package snake.graphics.window;
+package snake.graphics.window.internal;
 
 import snake.graphics.basic.Color;
 import snake.graphics.drawable.Drawable;
@@ -15,7 +15,6 @@ public class Renderer {
 
     public void render(java.awt.Graphics g){
         for(Drawable d : drawables){
-            //TODO definir cor
             g.setColor(toAwtColor(d.getColor()));
             d.draw(g);
         }
