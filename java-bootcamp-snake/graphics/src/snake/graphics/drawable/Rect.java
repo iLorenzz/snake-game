@@ -20,8 +20,18 @@ public class Rect extends Drawable{
         return new Point(rectangle.x, rectangle.y);
     }
 
+    public void location(Point point){
+        rectangle.x = point.x;
+        rectangle.y = point.y;
+    }
+
     public Dimension dimension(){
         return new Dimension(rectangle.width, rectangle.height);
+    }
+
+    public void location(Dimension dimension){
+        rectangle.width = dimension.width;
+        rectangle.height = dimension.height;
     }
 
     public int minX(){
