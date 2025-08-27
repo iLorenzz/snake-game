@@ -1,27 +1,45 @@
 package snake.graphics.handler;
 
+import snake.graphics.window.Key;
+
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.time.Instant;
 import java.util.Optional;
 import java.util.function.Consumer;
+
+import static java.time.Instant.EPOCH;
 
 public class KeyHandler {
     public final JFrame owner;
     private KeyListener currentKeyListener;
+    private Instant lastKeyboardEventTime;
+    private int keyEventInterval;
 
-    public KeyHandler(JFrame owner) {
+    public KeyHandler(JFrame owner, int keyEventInterval) {
         this.owner = owner;
+        this.lastKeyboardEventTime = EPOCH;
+        this.keyEventInterval = keyEventInterval;
     }
 
     public void defineKeyPressedHandler(Consumer<Key> keyPressedHandler){
+        owner.removeKeyListener(currentKeyListener);
+
         currentKeyListener = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                fromAwtKey(e.getKeyCode()).ifPresent(keyPressedHandler);
+                Instant now = Instant.now();
+
+                if(lastKeyboardEventTime.plusMillis(keyEventInterval).isBefore(now)) {
+                    fromAwtKey(e.getKeyCode()).ifPresent(keyPressedHandler);
+                    lastKeyboardEventTime = now;
+                }
             }
         };
+
+        owner.addKeyListener(currentKeyListener);
     }
 
     private Optional<Key> fromAwtKey(int key){

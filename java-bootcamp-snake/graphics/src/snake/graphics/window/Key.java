@@ -1,4 +1,4 @@
-package snake.graphics.handler;
+package snake.graphics.window;
 
 public enum Key {
     UP,

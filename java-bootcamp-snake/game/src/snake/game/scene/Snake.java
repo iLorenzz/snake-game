@@ -7,13 +7,15 @@ import snake.graphics.basic.Point;
 import snake.graphics.drawable.Rect;
 import snake.graphics.drawable.Shape;
 
+import static snake.game.core.Direction.NONE;
+
 public class Snake extends Shape {
     private Direction direction;
 
     public Snake(){
         super(Color.WHITE);
 
-        direction = Direction.RIGHT;
+        direction = NONE;
 
         Point p = new Point(300, 100);
         Dimension d = new Dimension(10 , 10);
@@ -30,11 +32,33 @@ public class Snake extends Shape {
     }
 
     public void move(){
-        Rect head = firstRect();
+        if(direction != NONE) {
+            Rect head = firstRect();
 
-        Rect.shift(rects());
+            Rect.shift(rects());
 
-        Rect newHead = duplicateRect(head, direction.point());
-        rects().set(0, newHead);
+            Rect newHead = duplicateRect(head, direction.point());
+            rects().set(0, newHead);
+        }
+    }
+
+    public void up(){
+        if(direction.canChangeTo(Direction.UP))
+            direction = Direction.UP;
+    }
+
+    public void down(){
+        if(direction.canChangeTo(Direction.DOWN))
+            direction = Direction.DOWN;
+    }
+
+    public void right(){
+        if(direction.canChangeTo(Direction.RIGHT))
+            direction = Direction.RIGHT;
+    }
+
+    public void left(){
+        if(direction.canChangeTo(Direction.LEFT) && direction != NONE)
+            direction = Direction.LEFT;
     }
 }
