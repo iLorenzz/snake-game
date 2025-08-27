@@ -22,4 +22,8 @@ public class GameWindow {
     public Rect drawingArea(){
         return window.getDrawingArea();
     }
+
+    public void update(){
+        window.repaint();
+    }
 }

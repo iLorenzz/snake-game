@@ -2,6 +2,7 @@ package snake.graphics.drawable;
 
 import snake.graphics.basic.Color;
 import snake.graphics.basic.Dimension;
+import java.util.List;
 
 import java.awt.*;
 
@@ -69,5 +70,11 @@ public class Rect extends Drawable{
     @Override
     public void draw(Graphics g){
         g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+    }
+
+    public static void shift(List<Rect> rects){
+        for(int i = rects.size() - 1; i >= 1; i--){
+            rects.set(i, rects.get(i-1));
+        }
     }
 }
