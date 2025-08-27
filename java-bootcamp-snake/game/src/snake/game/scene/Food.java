@@ -1,6 +1,7 @@
 package snake.game.scene;
 
 import snake.game.utils.RandomUtils;
+import snake.graphics.basic.Point;
 import snake.graphics.drawable.Rect;
 
 import java.awt.*;

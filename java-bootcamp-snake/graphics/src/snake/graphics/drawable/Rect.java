@@ -1,6 +1,7 @@
 package snake.graphics.drawable;
 
 import snake.graphics.basic.Color;
+import snake.graphics.basic.Dimension;
 
 import java.awt.*;
 
@@ -16,22 +17,26 @@ public class Rect extends Drawable{
         this(Color.BLACK, 0, 0, 0, 0);
     }
 
-    public Point location(){
-        return new Point(rectangle.x, rectangle.y);
+    public Rect(snake.graphics.basic.Point p, snake.graphics.basic.Dimension dimension)  {
+        this(null, p.x(), p.y(), dimension.width(), dimension.height());
     }
 
-    public void location(Point point){
-        rectangle.x = point.x;
-        rectangle.y = point.y;
+    public snake.graphics.basic.Point location(){
+        return new snake.graphics.basic.Point(rectangle.x, rectangle.y);
     }
 
-    public Dimension dimension(){
-        return new Dimension(rectangle.width, rectangle.height);
+    public void location(snake.graphics.basic.Point point){
+        rectangle.x = point.x();
+        rectangle.y = point.y();
+    }
+
+    public snake.graphics.basic.Dimension dimension(){
+        return new snake.graphics.basic.Dimension(rectangle.width, rectangle.height);
     }
 
     public void location(Dimension dimension){
-        rectangle.width = dimension.width;
-        rectangle.height = dimension.height;
+        rectangle.width = dimension.width();
+        rectangle.height = dimension.height();
     }
 
     public int minX(){

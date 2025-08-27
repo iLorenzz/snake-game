@@ -41,4 +41,14 @@ public class Shape extends Drawable{
     public void draw(Graphics g){
         rects.forEach(r -> r.draw(g));
     }
+
+    public Rect duplicateRect(Rect baseRect, snake.graphics.basic.Point direction) {
+        int baseX = baseRect.location().x();
+        int baseY = baseRect.location().y();
+        int baseWidth = baseRect.dimension().width();
+        int baseHeight = baseRect.dimension().height();
+
+        snake.graphics.basic.Point p = new snake.graphics.basic.Point(baseX + direction.x() * baseWidth, baseY + direction.y() * baseHeight);
+        return new Rect(p, baseRect.dimension());
+    }
 }
