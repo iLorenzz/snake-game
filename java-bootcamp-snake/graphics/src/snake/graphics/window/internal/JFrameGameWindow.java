@@ -7,6 +7,8 @@ import snake.graphics.basic.Point;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class JFrameGameWindow extends JFrame {
     private final Renderer renderer;
@@ -25,6 +27,7 @@ public class JFrameGameWindow extends JFrame {
 
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
     }
 
     public Rect getDrawingArea(){
